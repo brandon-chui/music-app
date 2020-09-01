@@ -3,11 +3,12 @@ import './App.css';
 import Login from './components/login/login';
 import { getTokenFromUrl } from './components/login/spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
+import { useDataValue } from './components/login/data';
 
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [token, setToken] = useState(null)
+  const [{ user, token }, dispatch] = useDataValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -15,17 +16,23 @@ function App() {
     const _token = hash.access_token
 
     if (_token) {
-      setToken(_token)
+      dispatch({
+        type: 'SET_TOKEN',
+        token: _token,
+      })
 
       spotify.setAccessToken(_token);
 
       spotify.getMe().then(user => {
-        console.log(user);
+        dispatch({
+          type: 'SET_USER',
+          user: user,
+        })
       })
     }
+  }, [])
 
-    console.log(`Hi, ${token}`)
-  }, [token])
+  console.log(`user: ${user} \n token: ${token}`);
 
   return (
     <div className="App">

@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './player.css';
+import SearchBars from '../searchBar/searchBar';
 
-function Player() {
+function Player({ spotify }) {
+
+
+
     return (
-        <div>Player</div>
+        <div>
+            <SearchBars spotify={ spotify } />
+            {/* Form */}
+            {/* Result */}
+        </div>
+        
     )
 }
 

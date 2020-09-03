@@ -109,7 +109,7 @@ function SearchBars({ spotify, setData }) {
                 />
                 <Button type="submit" style={{ verticalAlign: 'bottom' }}>
                     submit
-            </Button>
+                </Button>
             </form>
         </div>
     )

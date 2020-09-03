@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Login from './components/login/login';
-import Player from './components/player/player';
+import Music from './components/music/music';
 import { getTokenFromUrl } from './components/login/spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { useDataValue } from './components/login/data';
@@ -35,11 +35,11 @@ function App() {
 
   return (
     <div className="App">
-      {token ? (
-        <Player spotify={spotify} />
-      ) : (
-        <Login />
-      )}
+      <div className='App-header'>
+        <h2>Music App</h2>
+        {!token && <Login />}
+      </div>
+      {token && <Music spotify={spotify} />}
     </div>
   );
 }

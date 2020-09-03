@@ -42,14 +42,13 @@ const ResultList = ({ result, sort, ascending, type, search }) => {
                 <h3>{type}</h3>
                 {
                     (type === 'Artists' || type === 'Tracks') &&
-                    <Button
+                    <button
                         type="submit"
                         onClick={sort}
-                        variant="contained"
-                        size="small"
+                        className="sort-button"
                     >
                         Sort By Populartiy: {ascending ? 'Ascending' : 'Descending'}
-                    </Button>
+                    </button>
                 }
             </div>
             {trackOrItem()}

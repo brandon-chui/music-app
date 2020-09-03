@@ -12,6 +12,10 @@ h3 {
     padding-top: 5px;
 }
 
+.music-body {
+    padding-top: 10px;
+}
+
 .track-list {
     width: 100%;
     margin: 0 auto;
@@ -79,4 +83,19 @@ h3 {
     flex-direction: row;
     justify-content: space-between;
     padding: 15px 0;
+}
+
+.sort-button, .login-button {
+    background-color: #1ED760;
+    color: white;
+    outline: none;
+    transition: 1s ease;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.sort-button:hover, .login-button:hover {
+    background-color: #191414;
 }

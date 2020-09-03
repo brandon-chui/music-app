@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './player.css';
+import './music.css';
 import SearchBars from '../searchBar/searchBar';
 import ResultList from './resultList';
 
-function Player({ spotify }) {
+function Music({ spotify }) {
 
     const [data, setData] = useState(null);
     const [ascending, setAscending] = useState(false);
@@ -19,7 +19,7 @@ function Player({ spotify }) {
     }
 
     return (
-        <div>
+        <div className='music-body'>
             <SearchBars 
                 spotify={spotify}
                 setData={setData}
@@ -38,4 +38,4 @@ function Player({ spotify }) {
     )
 }
 
-export default Player;
+export default Music;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import './searchBar.css';
 
-function SearchBars({ spotify, addArtist, setType }) {
+function SearchBars({ spotify, setData }) {
     const [artist, setArtist] = useState('');
     const [album, setAlbum] = useState('');
     const [track, setTrack] = useState('');
@@ -13,7 +13,6 @@ function SearchBars({ spotify, addArtist, setType }) {
             if (artist && album) {
                 await spotify.searchAlbums(album)
                     .then((res) => {
-                        console.log('search album + artist result - ', res)
                         const artistAlbum = res.albums.items.filter(album => {
                             let arr = album.artists.map(art => {
                                 return art.name;
@@ -22,8 +21,11 @@ function SearchBars({ spotify, addArtist, setType }) {
                                 return name.toLowerCase().includes(artist.toLowerCase());
                             })
                         })
-                        setType('Albums by Artist');
-                        addArtist(artistAlbum);
+                        setData({
+                            result: artistAlbum,
+                            type: 'Albums by Artist',
+                            search: `${album} by ${artist}`,
+                        });
                         setArtist('');
                         setAlbum('');
                     },
@@ -34,8 +36,11 @@ function SearchBars({ spotify, addArtist, setType }) {
             } else if (artist) {
                 await spotify.searchArtists(artist)
                     .then((data) => {
-                        setType('Artists');
-                        addArtist(data.artists.items);
+                        setData({
+                            result: data.artists.items,
+                            type: 'Artists',
+                            search: artist,
+                        });
                         setArtist('');
                     },
                         (err) => {
@@ -45,8 +50,11 @@ function SearchBars({ spotify, addArtist, setType }) {
             } else if (album) {
                 await spotify.searchAlbums(album)
                     .then((data) => {
-                        setType('Albums');
-                        addArtist(data.albums.items);
+                        setData({
+                            result: data.albums.items,
+                            type: 'Albums',
+                            search: album,
+                        });
                         setAlbum('');
                     },
                         (err) => {
@@ -56,8 +64,11 @@ function SearchBars({ spotify, addArtist, setType }) {
             } else if (track) {
                 await spotify.searchTracks(track)
                     .then((data) => {
-                        setType('Tracks');
-                        addArtist(data.tracks.items);
+                        setData({
+                            result: data.tracks.items,
+                            type: 'Tracks',
+                            search: track,
+                        });
                         setTrack('');
                     },
                         (err) => {
@@ -74,7 +85,7 @@ function SearchBars({ spotify, addArtist, setType }) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} autoComplete="off">
                 <TextField
                     label="Artist"
                     name="artist"

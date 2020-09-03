@@ -6,18 +6,13 @@ import ResultList from './resultList';
 function Player({ spotify }) {
 
     const [data, setData] = useState(null);
-    const [type, setType] = useState('');
-    const [ascending, setAscending] = useState(false)
-
-    const addArtist = (artist) => {
-        setData(artist)
-    }
+    const [ascending, setAscending] = useState(false);
 
     const sortPopularity = () => {
         if (ascending) {
-            setData(data.sort((a, b) => b.popularity - a.popularity))
+            setData({ ...data, result: data.result.sort((a, b) => b.popularity - a.popularity)})
         } else {
-            setData(data.sort((a, b) => a.popularity - b.popularity))
+            setData({ ...data, result: data.result.sort((a, b) => a.popularity - b.popularity)})
         }
 
         setAscending(!ascending)
@@ -27,15 +22,15 @@ function Player({ spotify }) {
         <div>
             <SearchBars 
                 spotify={spotify}
-                addArtist={addArtist}
-                setType={setType}
+                setData={setData}
             />
             {data && 
                 <ResultList 
-                    result={data} 
+                    result={data.result} 
                     sort={sortPopularity} 
                     ascending={ascending}
-                    type={type}
+                    type={data.type}
+                    search={data.search}
                 />
             }
         </div>

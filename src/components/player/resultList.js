@@ -3,7 +3,13 @@ import Item from './item';
 import Track from './track';
 import { Button } from '@material-ui/core';
 
-const ResultList = ({ result, sort, ascending, type }) => {
+const ResultList = ({ result, sort, ascending, type, search }) => {
+
+    if (result.length === 0) {
+        return (
+            <h3>No Results for {search}</h3>
+        )
+    }
     
     const trackOrItem = () => {
         if (type === 'Tracks') {
@@ -29,19 +35,22 @@ const ResultList = ({ result, sort, ascending, type }) => {
         }
     }
 
-    console.log(result);
-
     return (
         <section>
-            <h2>Result List</h2>
-            <div>
-                <h4>{type}</h4>
-                <Button
-                    type="submit"
-                    onClick={sort}
-                >
-                    Sort By Populartiy: {ascending ? 'Ascending' : 'Descending'}
-                </Button>
+            <h2>Result for: {search}</h2>
+            <div className='type'>
+                <h3>{type}</h3>
+                {
+                    (type === 'Artists' || type === 'Tracks') &&
+                    <Button
+                        type="submit"
+                        onClick={sort}
+                        variant="contained"
+                        size="small"
+                    >
+                        Sort By Populartiy: {ascending ? 'Ascending' : 'Descending'}
+                    </Button>
+                }
             </div>
             {trackOrItem()}
         </section>

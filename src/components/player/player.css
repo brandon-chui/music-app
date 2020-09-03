@@ -1,0 +1,62 @@
+.track-list {
+    width: 50%;
+    min-width: 300px;
+    margin: 0 auto;
+
+}
+
+.track {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.track div {
+    display:flex;
+    flex-direction: column;
+    padding-left: 5px;
+    text-align: left;
+}
+
+.track-image {
+    width: 50px;
+    height: 50px
+}
+
+.track-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.artist-name {
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
+.popularity {
+    font-size: 12px;
+    margin-left: auto;
+}
+
+.artist-images {
+    width: 50%;
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+.item-info {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artist-images img {
+    width: 50%;
+    min-width: 150px;
+}

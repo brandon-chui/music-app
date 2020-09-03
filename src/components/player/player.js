@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './player.css';
 import SearchBars from '../searchBar/searchBar';
 import ResultList from './resultList';
-import { Button } from '@material-ui/core';
 
 function Player({ spotify }) {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
+    const [type, setType] = useState('');
     const [ascending, setAscending] = useState(false)
 
     const addArtist = (artist) => {
@@ -16,10 +16,10 @@ function Player({ spotify }) {
     const sortPopularity = () => {
         if (ascending) {
             setData(data.sort((a, b) => b.popularity - a.popularity))
-            console.log('ascending', data);
         } else {
             setData(data.sort((a, b) => a.popularity - b.popularity))
         }
+
         setAscending(!ascending)
     }
 
@@ -28,16 +28,16 @@ function Player({ spotify }) {
             <SearchBars 
                 spotify={spotify}
                 addArtist={addArtist}
+                setType={setType}
             />
-            <Button 
-                type="submit" 
-                onClick={sortPopularity}
-            >
-                Sort By Populartiy: {ascending ? 'Ascending' : 'Descending'}
-            </Button>
-            {/* Form */}
-            {/* Result */}
-            <ResultList result={data} />
+            {data && 
+                <ResultList 
+                    result={data} 
+                    sort={sortPopularity} 
+                    ascending={ascending}
+                    type={type}
+                />
+            }
         </div>
         
     )

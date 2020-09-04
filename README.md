@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Music Search App
 
-## Available Scripts
+Music Search App built in React using the Spotify API.
 
-In the project directory, you can run:
+### Installation
+In the project directory, please run:
 
-### `npm start`
+`npm install`
+<br/>
+`npm run build`
+<br/>
+`npm run start`
 
-Runs the app in the development mode.<br />
+ `npm start` - Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+## Usage and Features
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You must login to your spotify account in order to use this app.
 
-### `npm run build`
+### Search
+In this app, there are 4 different search functions:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Search Artists - displays artists matching input
+2. Search Albums - displays albums matching input
+3. Search Albums by Artist - displays albums matching input in artists and album
+4. Search Tracks - displays tracks matching input
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+You can click on any of the search results to redirect to the correlating spotify webpage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Sort by Popularity
 
-### `npm run eject`
+Artists and Tracks have a popularity rating attached to them. You can sort your results by popularity with a click of a button.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Design Decisions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Tech / Libraries
+This App was built using React leveraging `create-react-app` 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I used React's built in useReducer instead of Redux because we only needed to manage the state on one page. I could have used another reducer to update the state when searching but the state was simple enough to met managed by a setState. I also leveraged `spotify-web-api-js` to make my API calls simpler and easy to read.
 
-## Learn More
+### UI
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+My design was mainly based off of the provided prompt. I used a bit of material UI to simply creating the search bars. Artists/Albums have a different design than Tracks. I tried to mimic what you would normally see when you play a track off Spotify.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Improvements
 
-### Code Splitting
+Make it into a Spotify clone.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Search
+Right now, the search is very simple and repetitive. I would improve the search to just a single input and add resulting artists, albums, and tracks based on the single input (similar to Spotify's search). Maybe include an autocomplete / search as you type functionality.
 
-### Analyzing the Bundle Size
+### Result List
+1. Add a button to copy and share the artist/album/track
+2. Add an icon to favorite the item. The favorited items could be listed on the side.
+3. Paginate search results. 
+4. More functionality to list items
+   - Artist: create new list showing albums by artist
+   - Album: create new list with tracks in the album
+   - Track: Allow preview of song
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

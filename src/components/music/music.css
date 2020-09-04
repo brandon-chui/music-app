@@ -25,6 +25,7 @@ h2 {
     border: 1px solid black;
     padding: 5px;
     margin: 5px 0;
+    cursor: pointer;
 }
 
 .track div {
@@ -75,6 +76,10 @@ h2 {
     width: 50%;
     min-width: 150px;
     max-width: 300px;
+}
+
+.album-info {
+    font-size: 12px;
 }
 
 .type {

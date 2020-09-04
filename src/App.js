@@ -36,8 +36,8 @@ function App() {
   return (
     <div className="App">
       <div className='App-header'>
-        <h2>Music App</h2>
-        {!token && <Login />}
+        <h2>Music SearchApp</h2>
+        {!token ? <Login /> : <span>Welcome to the Music Search App <br/> Search for any Artist, Album, or Track</span>}
       </div>
       {token && <Music spotify={spotify} />}
     </div>

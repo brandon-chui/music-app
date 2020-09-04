@@ -8,7 +8,7 @@ const Track = ({ item }) => {
     const image = item.album.images[0] ? item.album.images[0].url : nullImage;
 
     return (
-        <div className='track'>
+        <div className='track' onClick={() => window.open(item.external_urls.spotify, "_blank")}>
             <img src={image} alt='album|song' className='track-image' />
             <div>
                 <span className='track-name'>{item.name}</span>

@@ -50,7 +50,7 @@ My design was mainly based off of the provided prompt. I used a bit of material 
 Make it into a Spotify clone.
 
 ### Search
-Right now, the search is very simple and repetitive. I would improve the search to just a single input and add resulting artists, albums, and tracks based on the single input (similar to Spotify's search). Maybe include an autocomplete / search as you type functionality.
+Right now, I am removing the previous search input because the search is very simple - it cannot handle inputs in all three inputs. I would improve the search to just a single input and add resulting artists, albums, and tracks based on the single input (similar to Spotify's search). Maybe include an autocomplete / search as you type functionality.
 
 ### Result List
 1. Add a button to copy and share the artist/album/track

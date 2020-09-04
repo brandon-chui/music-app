@@ -3,8 +3,6 @@ import './login.css';
 import { loginUrl, getTokenFromUrl } from './spotify';
 
 function Login() {
-    console.log(getTokenFromUrl())
-
     return (
         <div className='login'>
             <p>Please Login to your Spotify Account to continue</p>

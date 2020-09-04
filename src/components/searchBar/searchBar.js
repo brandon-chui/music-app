@@ -6,6 +6,7 @@ function SearchBars({ spotify, setData }) {
     const [artist, setArtist] = useState('');
     const [album, setAlbum] = useState('');
     const [track, setTrack] = useState('');
+    const [error, setError] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,6 +29,7 @@ function SearchBars({ spotify, setData }) {
                         });
                         setArtist('');
                         setAlbum('');
+                        if (error) { setError('') };
                     },
                         (err) => {
                             console.log(err);
@@ -42,6 +44,7 @@ function SearchBars({ spotify, setData }) {
                             search: artist,
                         });
                         setArtist('');
+                        if (error) { setError('') };
                     },
                         (err) => {
                             console.log(err);
@@ -56,6 +59,7 @@ function SearchBars({ spotify, setData }) {
                             search: album,
                         });
                         setAlbum('');
+                        if (error) { setError('') };
                     },
                         (err) => {
                             console.log(err);
@@ -70,11 +74,14 @@ function SearchBars({ spotify, setData }) {
                             search: track,
                         });
                         setTrack('');
+                        if (error) { setError('') };
                     },
                         (err) => {
                             console.log(err);
                         }
                     )
+            } else {
+                setError('Please Enter an Artist, Album, or Track Name')
             }
             
 
@@ -111,6 +118,7 @@ function SearchBars({ spotify, setData }) {
                     submit
                 </Button>
             </form>
+            {error && <div style={{ color: 'red'}}>{error}</div>}
         </div>
     )
 }

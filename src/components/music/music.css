@@ -8,10 +8,6 @@ h2 {
     text-align: left;
 }
 
-h3 {
-    padding-top: 5px;
-}
-
 .music-body {
     padding-top: 10px;
 }
@@ -56,6 +52,8 @@ h3 {
 .popularity {
     font-size: 12px;
     margin-left: auto;
+    white-space: nowrap;
+    padding-left: 10px;
 }
 
 .artist-images {
@@ -76,6 +74,7 @@ h3 {
 .artist-images img {
     width: 50%;
     min-width: 150px;
+    max-width: 300px;
 }
 
 .type {
@@ -97,5 +96,5 @@ h3 {
 }
 
 .sort-button:hover, .login-button:hover {
-    background-color: #191414;
+    background-color: #228B22;
 }

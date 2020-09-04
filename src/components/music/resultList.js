@@ -1,7 +1,6 @@
 import React from 'react';
 import Item from './item';
 import Track from './track';
-import { Button } from '@material-ui/core';
 
 const ResultList = ({ result, sort, ascending, type, search }) => {
 
